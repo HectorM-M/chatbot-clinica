@@ -6,14 +6,16 @@ import { getBotResponse } from "../utils/decisionTree";
 export default function Chatbot() {
   const [messages, setMessages] = useState([
     {
-      text: "Hola 👋 Soy el asistente virtual de la clínica. ¿Cómo puedo ayudarte?",
+      text: "Hola 👋 Soy el asistente virtual de la clínica. ¿Cuál es tu nombre?",
       sender: "bot",
     },
   ]);
+
   const [input, setInput] = useState("");
+  const [userName, setUserName] = useState(null);
   const messagesEndRef = useRef(null);
 
-  // Scroll automático para los mensajws
+  // Scroll automático
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -22,6 +24,22 @@ export default function Chatbot() {
     if (!input.trim()) return;
 
     const userMessage = { text: input, sender: "user" };
+
+    // Si aún no tenemos el nombre del usuario
+    if (!userName) {
+      setUserName(input);
+
+      const botMessage = {
+        text: `Encantado de conocerte, ${input} 😊 ¿En qué puedo ayudarte hoy?`,
+        sender: "bot",
+      };
+
+      setMessages((prev) => [...prev, userMessage, botMessage]);
+      setInput("");
+      return;
+    }
+
+    // Flujo normal después de tener el nombre
     const botMessage = {
       text: getBotResponse(input),
       sender: "bot",
@@ -37,7 +55,7 @@ export default function Chatbot() {
       {/* Header */}
       <div className="bg-blue-600 text-white p-4 flex items-center gap-2">
         <div className="w-8 h-8 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold">
-          🤖
+          
         </div>
         <div>
           <p className="font-semibold">Asistente Clínica</p>
