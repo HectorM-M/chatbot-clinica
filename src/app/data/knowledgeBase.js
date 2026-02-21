@@ -1,7 +1,7 @@
 export const knowledgeBase = [
 
     {
-        keywords:["hola", "buenos dias", "buenas tardes", "bienvenido", "hello", "hi", "buenas"],
+        keywords:["hola", "holi", "buenos dias", "buenas tardes", "bienvenido", "hello", "hi", "buenas"],
         response: "¡Hola! Bienvenido a la clínica. ¿En qué puedo ayudarte hoy?"
     },
 
@@ -55,6 +55,11 @@ export const knowledgeBase = [
     keywords: ["agendar una cita", "sacar cita", "programar cita"],
     response:
       "Puede agendar una cita llamando a nuestra línea de atención o acercándose a recepción. También puede hacerlo a través de nuestro portal web."
+  },
+   {
+    keywords: ["cual es la linea de atencion", "cual es el numero", "cuál es el número", "número?", "numero", "contacto", "cual es el", "contacto"],
+    response:
+      "+503 0000-0000"
   },
   {
     keywords: ["urgencias", "emergencias"],
