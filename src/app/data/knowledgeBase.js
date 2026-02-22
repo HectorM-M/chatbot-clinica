@@ -44,6 +44,11 @@ export const knowledgeBase = [
     response:
       "Debe consultar a un dermatólogo cuando presente problemas persistentes en la piel, manchas, erupciones o infecciones cutáneas."
   },
+  {
+  keywords: ["depresión", "ansiedad", "cansado mentalmente"],
+    response:
+      "Tranquil@, no estas sol@. Se recomienda consultar con un psicologo o psquiquiatra lo antes posible, la depresion o ansiedad no es algo que debas resolver solo"
+      },
 
   // 3️ Servicios y atención en la clínica
   {
